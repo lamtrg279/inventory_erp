@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { BiSolidFridge } from "react-icons/bi";
+import ItemInput from "./components/ItemInput";
+import TestButton from "./components/test";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="bg-yellow-50 min-h-screen">
+      <header className="fixed top-0 left-0 right-0  p-4 flex items-center bg-green-300">
+        <h1
+          className="m-4 text-4xl font-bold"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          Fridge Manager
+        </h1>
+        <BiSolidFridge className="h-12 w-12" />
+      </header>
+      <ItemInput />
+    </div>
+  );
 }
 
-export default App
+export default App;
