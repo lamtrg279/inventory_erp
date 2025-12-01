@@ -1,7 +1,6 @@
 import "./App.css";
 import { BiSolidFridge } from "react-icons/bi";
-import ItemInput from "./components/ItemInput";
-import TestButton from "./components/test";
+import ItemForm from "./components/ItemForm";
 
 function App() {
   return (
@@ -15,7 +14,7 @@ function App() {
         </h1>
         <BiSolidFridge className="h-12 w-12" />
       </header>
-      <ItemInput />
+      <ItemForm />
     </div>
   );
 }
