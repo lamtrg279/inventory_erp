@@ -6,7 +6,7 @@ import { db } from "../firebase";
 import { FaPlusSquare } from "react-icons/fa";
 import { unitOptions } from "../data/units";
 
-const ItemInput = () => {
+const ItemInput = ({ onAdd }) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("");
@@ -29,6 +29,7 @@ const ItemInput = () => {
       setCustomUnit("");
 
       console.log("document written", item.id);
+      if (onAdd) onAdd(); // refresh list
     } catch (e) {
       console.error("error", e);
     }
