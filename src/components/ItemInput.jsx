@@ -14,7 +14,7 @@ const ItemInput = ({ onAdd }) => {
 
   // Add item to firestore database
   const addItem = async () => {
-    const finalUnit = unit === "other" ? customUnit : unit;
+    const finalUnit = unit === "Other" ? customUnit : unit;
     try {
       console.log("hello");
       const item = await addDoc(collection(db, "items"), {
@@ -28,7 +28,7 @@ const ItemInput = ({ onAdd }) => {
       setUnit("");
       setCustomUnit("");
 
-      console.log("document written", item.id);
+      console.log("Document written", item.id);
       if (onAdd) onAdd(); // refresh list
     } catch (e) {
       console.error("error", e);

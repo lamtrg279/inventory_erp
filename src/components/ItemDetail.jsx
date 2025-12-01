@@ -5,15 +5,19 @@ import { useState, useEffect } from "react";
 
 const ItemDetail = ({ items = [] }) => {
   return (
-    <div className="pt-38 flex justify-center items-center gap-1 flex-col">
+    <div className="pt-20 flex justify-center items-center gap-1 flex-col">
       {items.map((item) => (
         <div
           key={item.id}
-          className="w-1/2 p-3 m-2 gap-x-3 border border-gray-300 rounded-lg shadow-sm bg-white flex justify-center items-center"
+          className="inline-grid h-15 p-3 m-2 gap-x-3 border border-gray-300 rounded-lg shadow-sm bg-white  grid-cols-[1fr_auto_auto] items-center hover:shadow-md transition-shadow"
         >
-          <p className="">{item.name} </p>
-          <p className="">{item.quantity} </p>
-          <p className="">{item.unit}</p>
+          <p className="text-gray-800 font-medium truncate w-32 px-4">
+            {item.name}
+          </p>
+          <p className="text-gray-600 font-semibold text-center w-14">
+            {item.quantity}
+          </p>
+          <p className="text-gray-500 text-center w-14">{item.unit}</p>
         </div>
       ))}
     </div>

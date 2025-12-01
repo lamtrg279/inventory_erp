@@ -1,7 +1,7 @@
 import React from "react";
 import ItemInput from "./ItemInput";
 import ItemDetail from "./ItemDetail";
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -15,9 +15,13 @@ const ItemForm = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setItems(data);
+    startTransition(() => setItems(data));
     console.log("Items loaded:", data);
   };
+
+  useEffect(() => {
+    loadItems();
+  }, []);
 
   return (
     <>
