@@ -2,7 +2,7 @@ import React from "react";
 import ItemInput from "./ItemInput";
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect, startTransition } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
 const ItemForm = () => {
@@ -23,10 +23,15 @@ const ItemForm = () => {
     loadItems();
   }, []);
 
+  const handleDelete = async (id) => {
+    await deleteDoc(doc(db, "items", id));
+    loadItems();
+  };
+
   return (
     <>
       <ItemInput onAdd={loadItems} />
-      <ItemDetail items={items} />
+      <ItemDetail items={items} onDelete={handleDelete} />
     </>
   );
 };
